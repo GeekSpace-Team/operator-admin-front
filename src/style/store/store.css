@@ -1,0 +1,16 @@
+.store {
+  background-color: #272727;
+  min-height: 100vh;
+  width: 100%;
+}
+.storeTable {
+  background: #363636;
+  box-shadow: -2px -2px 6px rgba(29, 29, 29, 0.4),
+    2px 2px 6px rgba(29, 29, 29, 0.5);
+  border-radius: 16px;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+.storetableItem label:nth-child(4) {
+  color: #fff;
+}
