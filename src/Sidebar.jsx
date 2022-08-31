@@ -1,21 +1,80 @@
 import React from "react";
 import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
   CssBaseline,
   Divider,
   Drawer,
   List,
-  ListItem,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Paper,
+  Stack,
+  Typography,
 } from "@mui/material";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import { sidebarItems } from "./layout/sidebar/Sidebar";
 import PropTypes from "prop-types";
 import { Box } from "@mui/system";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { NavLink } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import MuiListItem from "@material-ui/core/ListItem";
+import { loginChecker } from "./common/utils.mjs";
 
-const drawerWidth = 240;
+const ListItem = withStyles({
+  root: {
+    "&": {
+      padding: "4px",
+      marginTop: "6px",
+      textAlign: "center",
+      borderRadius: "25px",
+    },
+    "&$selected": {
+      backgroundColor: "#292929",
+      color: "#fefefe",
+      opacity: "0.9",
+      padding: "4px",
+      fontWeight: "bold",
+      textAlign: "center",
+      borderRadius: "25px",
+      boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+      "& .MuiListItemIcon-root": {
+        color: "#3570A2",
+      },
+    },
+    "&$selected:hover": {
+      backgroundColor: "#292929",
+      color: "#fefefe",
+      "& .MuiListItemIcon-root": {
+        color: "#fefefe",
+      },
+    },
+    "&:hover": {
+      backgroundColor: "#292929",
+      color: "#fefefe",
+      "& .MuiListItemIcon-root": {
+        color: "#fefefe",
+      },
+    },
+  },
+  selected: {},
+})(MuiListItem);
+
+const styles = {
+  expand_icon: {
+    color: "white",
+  },
+  link: {
+    color: "#fff",
+    fontFamily: "italic",
+  },
+};
+
+const drawerWidth = 300;
 
 const Sidebar = (props) => {
   const { window } = props;
@@ -31,46 +90,176 @@ const Sidebar = (props) => {
     setSelected(index);
   };
 
+  let location = useLocation();
+  const [currentPage, setCurrentPage] = React.useState("");
+
+  React.useEffect(() => {
+    loginChecker();
+    setCurrentPage(`${location.pathname}${location.search}`);
+  }, [location]);
+
   const drawer = (
     <Paper
-      sx={{ height: "100vh", bottom: 0 }}
+      sx={{
+        height: "100vh",
+        bottom: 0,
+        paddingLeft: "12px",
+        paddingRight: "12px",
+      }}
       style={{
         maxHeight: "100vh",
-        overflow: "auto",
         background: "#363636",
-        color: "#fefefe",
+        overflow: "hidden",
       }}
     >
       <Divider />
-      <List style={{ maxHeight: "100%", overflow: "auto" }}>
-        {sidebarItems.map((sidebarItem, i) => (
-          <Link
-            to={sidebarItem.link}
-            style={{
-              textDecoration: "none",
-              color: "#FEFEFE",
-            }}
-            key={`${sidebarItem.title}___`}
-          >
-            <ListItem
-              selected={selected === i}
-              onClick={() => handleSelect(i, sidebarItem.title)}
-              key={sidebarItem.title}
-              disablePadding
+      <List
+        style={{ maxHeight: "100%", fontFamily: "nunito", overflow: "auto" }}
+      >
+        {sidebarItems.map((sidebarItem, i) =>
+          sidebarItem.link == "/question" ? (
+            <Accordion
+              style={{
+                background: "#363636",
+                fontFamily: "nunito",
+                color: "#fff",
+                overflow: "hidden",
+              }}
             >
-              <ListItemButton
-                sx={{ textDecoration: "none" }}
-                style={{ borderRadius: "16px" }}
-                color="action"
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
               >
-                <ListItemIcon style={{ color: "#fefefe" }} color="action">
-                  {sidebarItem.icon}
-                </ListItemIcon>
-                <ListItemText primary={sidebarItem.title} color="action" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-        ))}
+                <Stack direction={"row"} spacing={4}>
+                  <HelpOutlineIcon />
+                  <Typography>Soraglar</Typography>
+                </Stack>
+              </AccordionSummary>
+              <AccordionDetails
+                style={{
+                  background: "#363636",
+                  fontFamily: "nunito",
+                  color: "#fff",
+                }}
+              >
+                <Stack direction={"column"} spacing={1.5} pl={3}>
+                  <NavLink
+                    to={"/status"}
+                    style={{ textDecoration: "none", fontFamily: "nunito" }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Müşderiniň statusy
+                    </Typography>
+                  </NavLink>
+                  <NavLink to={"/findUs"} style={{ textDecoration: "none" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Bizi nireden tapdy
+                    </Typography>
+                  </NavLink>
+                  <NavLink
+                    to={"/gurleyishAheni"}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Gürleýiş äheňi
+                    </Typography>
+                  </NavLink>
+                  <NavLink
+                    to={"/gurleyishTony"}
+                    style={{ textDecoration: "none" }}
+                  >
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Gürleýiş tony
+                    </Typography>
+                  </NavLink>
+                  <NavLink to={"/speakMode"} style={{ textDecoration: "none" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Gepleýiş şekili
+                    </Typography>
+                  </NavLink>
+                  <NavLink to={"/speakTone"} style={{ textDecoration: "none" }}>
+                    <Typography
+                      style={{
+                        fontFamily: "nunito",
+                        fontSize: "18px",
+                        color: "#fefefe",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Nähili äheňde gürleşýär
+                    </Typography>
+                  </NavLink>
+                </Stack>
+              </AccordionDetails>
+            </Accordion>
+          ) : (
+            <Link
+              to={sidebarItem.link}
+              style={{
+                textDecoration: "none",
+                color: "#FEFEFE",
+              }}
+              key={`${sidebarItem.title}___`}
+            >
+              <ListItem
+                selected={currentPage == sidebarItem.link}
+                onClick={() => handleSelect(i, sidebarItem.title)}
+                key={sidebarItem.title}
+                disablePadding
+              >
+                <ListItemButton
+                  sx={{ textDecoration: "none", background: "transparent" }}
+                  style={{
+                    borderRadius: "16px",
+                    background: "transparent",
+                  }}
+                  color="action"
+                >
+                  <ListItemIcon style={{ color: "#fefefe" }} color="action">
+                    {sidebarItem.icon}
+                  </ListItemIcon>
+                  <ListItemText primary={sidebarItem.title} color="action" />
+                </ListItemButton>
+              </ListItem>
+            </Link>
+          )
+        )}
       </List>
     </Paper>
   );

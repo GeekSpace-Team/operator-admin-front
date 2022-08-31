@@ -17,7 +17,7 @@ const Search = () => {
   );
 };
 
-const Searc = styled.div`
+export const Searc = styled.div`
   opacity: 1;
   flex-grow: 1;
   position: relative;
@@ -40,7 +40,7 @@ const Searc = styled.div`
     }
   }
 `;
-const SearchIconn = styled.div`
+export const SearchIconn = styled.div`
   width: 40px;
   position: absolute;
   z-index: 1;

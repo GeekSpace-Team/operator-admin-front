@@ -1,5 +1,106 @@
 import React from "react";
-import { Box, Button, Modal, Stack } from "@mui/material";
+import { Box, Button, Modal, Stack, Typography } from "@mui/material";
+import { AxiosInstance } from "../../api-interface/api/AxiosInstance.mjs";
+import { showError, showSuccess } from "../../view/helper/Alert/Alert.jsx";
+import { makeStyles } from "@material-ui/core/styles";
+import { ToastContainer } from "react-toastify";
+
+const Delete = (props) => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const classes = makeStyles(ownStyles)();
+
+  const deleteModerator = async () => {
+    await AxiosInstance.delete(
+      `/admin/delete-user?unique_id=${props.unique_id}`
+    )
+      .then((response) => {
+        if (response.data.error) {
+          alert("Error");
+        } else {
+          if (response.data.body == "success") {
+            handleClose();
+            props.getModerator(1);
+            showSuccess("Üstünlikli pozuldy!!!");
+          }
+        }
+      })
+      .catch((ex) => {
+        showError(ex);
+      });
+  };
+  return (
+    <div>
+      <Button
+        onClick={handleOpen}
+        style={{
+          textTransform: "none",
+          borderRadius: "16px",
+          background: "#F61A1A",
+          color: "#fefefe",
+          fontSize: "14px",
+          fontWeight: "600",
+        }}
+        variant="contained"
+      >
+        Pozmak
+      </Button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Typography className={classes.text}>
+            Siz <em>{props.fullname} </em> atly hasabyňyzy hakykatdanam
+            <br /> pozmak isleýaňizmi ?!
+          </Typography>
+          <Stack direction="row" spacing={4} mt={3} justifyContent={"center"}>
+            <Button
+              onClick={handleClose}
+              style={{
+                textTransform: "none",
+                fontWeight: "600",
+                borderRadius: "16px",
+                width: "120px",
+              }}
+              variant="outlined"
+            >
+              Yok
+            </Button>
+            <Button
+              onClick={deleteModerator}
+              variant="contained"
+              style={{
+                textTransform: "none",
+                fontWeight: "600",
+                borderRadius: "16px",
+                color: "#fefefe",
+                background: "#5E9CCE",
+                width: "120px",
+              }}
+            >
+              Hawa
+            </Button>
+          </Stack>
+        </Box>
+      </Modal>
+      <ToastContainer />
+    </div>
+  );
+};
+
+export default Delete;
+
+function ownStyles() {
+  return {
+    text: {
+      color: "#fff",
+    },
+  };
+}
 
 const style = {
   position: "absolute",
@@ -14,66 +115,3 @@ const style = {
   p: 4,
   textAlign: "center",
 };
-
-const Delete = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  return (
-    <div>
-      <Button
-        onClick={handleOpen}
-        style={{
-          textTransform: "none",
-          borderRadius: "16px",
-          background: "#F61A1A",
-          fontSize: "14px",
-          fontWeight: "600",
-        }}
-        variant="contained"
-      >
-        Delete
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <span style={{ fontWeight: "600", fontSize: "18px" }}>
-            Siz <label>"Amanow Aman"</label>atly hasabynyzy hakykatdanam <br />
-            pozmak isleyanizmi ?
-          </span>
-          <Stack direction="row" spacing={4} mt={3} justifyContent={"center"}>
-            <Button
-              style={{
-                textTransform: "none",
-                fontWeight: "600",
-                borderRadius: "16px",
-                width: "120px",
-              }}
-              variant="outlined"
-            >
-              Yok
-            </Button>
-            <Button
-              variant="contained"
-              style={{
-                textTransform: "none",
-                fontWeight: "600",
-                borderRadius: "16px",
-                background: "#5E9CCE",
-                width: "120px",
-              }}
-            >
-              Hawa
-            </Button>
-          </Stack>
-        </Box>
-      </Modal>
-    </div>
-  );
-};
-
-export default Delete;

@@ -6,47 +6,72 @@ import RoomOutlinedIcon from "@mui/icons-material/RoomOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import GridViewOutlinedIcon from "@mui/icons-material/GridViewOutlined";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
+import LogoutIcon from "@mui/icons-material/Logout";
+import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
+import RemoveRedEyeOutlinedIcon from "@mui/icons-material/RemoveRedEyeOutlined";
+import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 
 const Sidebar = () => {
-  return <div>Sidebar</div>;
+  return <></>;
 };
 
 export default Sidebar;
 
 export const sidebarItems = [
   {
-    title: "Statistics",
+    title: "Statistika",
     icon: <TrendingUpIcon />,
-    link: "/statistica",
+    link: "/",
   },
   {
     title: "Moderatorlar",
     icon: <RecentActorsOutlinedIcon />,
-    link: "moderator",
+    link: "/moderator",
   },
   {
     title: "Operatorlar",
     icon: <PeopleAltOutlinedIcon />,
-    link: "operator",
+    link: "/operator",
   },
   {
-    title: "Sowda nokatlar",
+    title: "Görüjiler",
+    icon: <RemoveRedEyeOutlinedIcon />,
+    link: "/operator?type=Viewer",
+  },
+  {
+    title: "Admin",
+    icon: <AdminPanelSettingsOutlinedIcon />,
+    link: "/operator?type=admin",
+  },
+  {
+    title: "Söwda nokatlar",
     icon: <RoomOutlinedIcon />,
-    link: "store-location",
+    link: "/store-location",
   },
   {
     title: "Eltip berijiler",
     icon: <LocalShippingOutlinedIcon />,
-    link: "courier",
+    link: "/courier",
   },
   {
     title: "Soraglar",
     icon: <HelpOutlineOutlinedIcon />,
-    link: "question",
+    link: "/question",
   },
   {
-    title: "Ulanyjy gornusleri",
+    title: "Ulanyjy görnüşleri",
     icon: <GridViewOutlinedIcon />,
-    link: "customer-type",
+    link: "/customer-type",
+  },
+
+  {
+    title: "Yzyna gaýtarmak sebäpleri",
+    icon: <CancelOutlinedIcon />,
+    link: "/cancel_reason",
+  },
+  {
+    title: "Çykmak",
+    icon: <LogoutIcon />,
+    link: "/loginPage",
   },
 ];
