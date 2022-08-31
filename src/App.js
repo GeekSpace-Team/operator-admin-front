@@ -48,7 +48,7 @@ function App() {
         <CssBaseline />
         <BrowserRouter>
           <Routes>
-            <Route path="/loginPage" element={<LoginPage />} />
+            {/* <Route path="/loginPage" element={<LoginPage />} /> */}
 
             {/* <Route index element={<Statistica />} /> */}
             <Route path="/" element={<Sidebar />}>
