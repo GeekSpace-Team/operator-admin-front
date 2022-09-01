@@ -69,9 +69,9 @@ export const sidebarItems = [
     icon: <CancelOutlinedIcon />,
     link: "/cancel_reason",
   },
-  // {
-  //   title: "Çykmak",
-  //   icon: <LogoutIcon />,
-  //   link: "/loginPage",
-  // },
+  {
+    title: "Çykmak",
+    icon: <LogoutIcon />,
+    link: "/loginPage",
+  },
 ];

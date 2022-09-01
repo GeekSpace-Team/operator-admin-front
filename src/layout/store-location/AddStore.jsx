@@ -177,7 +177,7 @@ const AddStore = (props) => {
               direction={"row"}
               justifyContent={"flex-end"}
               spacing={3}
-              mt={"23%"}
+              mt={3}
             >
               <Button
                 onClick={() => clear()}

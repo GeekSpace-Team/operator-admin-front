@@ -169,7 +169,7 @@ const UpdateSellPoint = (props) => {
               direction={"row"}
               justifyContent={"flex-end"}
               spacing={3}
-              mt={"23%"}
+              mt={3}
             >
               <Button
                 onClick={() => clear()}
@@ -288,7 +288,6 @@ const style = {
   overflow: true,
   transform: "translate(-50%, -50%)",
   width: "60%",
-  height: "80vh",
   display: "block",
   borderRadius: "16px",
   bgcolor: "#636161",
