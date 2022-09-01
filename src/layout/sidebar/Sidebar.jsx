@@ -72,6 +72,6 @@ export const sidebarItems = [
   {
     title: "Çykmak",
     icon: <LogoutIcon />,
-    link: "/loginPage",
+    link: "/login",
   },
 ];

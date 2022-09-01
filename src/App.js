@@ -16,12 +16,12 @@ import SpeakMode from "./layout/question/speakMode/SpeakMode";
 import SpeakTone from "./layout/question/speakTone/SpeakTone";
 import OperatorUpdate from "./layout/customer-type/operatorUpdate/OperatorUpdate";
 import CourierUpdate from "./layout/customer-type/courierUpdate/CourierUpdate";
-import LoginPage from "./layout/loginPage/LoginPage";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import CancelReason from "./layout/cancel_reason/CancelReason";
 import { loginChecker } from "./common/utils.mjs";
+import LoginPage from "./layout/login/LoginPage";
 
 function App() {
   // console.log = () => {};
@@ -48,9 +48,7 @@ function App() {
         <CssBaseline />
         <BrowserRouter>
           <Routes>
-            <Route path="/loginPage" element={<LoginPage />} />
-
-            {/* <Route index element={<Statistica />} /> */}
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/" element={<Sidebar />}>
               <Route index element={<Statistica />} />
               <Route
@@ -59,7 +57,6 @@ function App() {
               />
               <Route path="/operator" element={<Operator />} />
               <Route path="/moderator" element={<Moderator />} />
-
               <Route path="/store-location" element={<StoreLocation />} />
               <Route path="/courier" element={<Courier />} />
               <Route path="/status" element={<Status />} />
