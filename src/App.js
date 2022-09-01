@@ -24,7 +24,7 @@ import { loginChecker } from "./common/utils.mjs";
 import LoginPage from "./layout/login/LoginPage";
 
 function App() {
-  // console.log = () => {};
+  console.log = () => {};
   console.error = () => {};
   console.warning = () => {};
   console.warn = () => {};

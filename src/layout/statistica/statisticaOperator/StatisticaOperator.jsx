@@ -303,13 +303,14 @@ const StatisticaOperator = (props) => {
             <TabContext value={value}>
               <Box sx={{ borderColor: "divider" }}>
                 <StyledTabs
+                  style={{ width: "100%", background: "#272727" }}
                   className="styleTabss"
                   value={value}
                   onChange={handleChange}
                   aria-label="lab API tabs example"
                 >
                   <StyledTab label={"Operatorlar"} value="1" />
-                  <StyledTab label={"Eltip berijiler"} value="2" />
+                  <StyledTab2 label={"Eltip berijiler"} value="2" />
                 </StyledTabs>
               </Box>
               <TabPanel value="2">
@@ -661,19 +662,41 @@ const StyledTabs = styled((props) => (
   "& .MuiTabs-indicator": {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: "#363636",
+    background: "transparent",
     height: "48px",
-    borderRadius: "16px 0px 0px 0px",
   },
   "& .MuiTabs-indicatorSpan": {
-    // maxWidth: 40,
-    // width: "100%",
     color: "#FFFFFF",
-    borderRadius: "0px 16px 0px 0px",
   },
 });
 
 const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
+  ({ theme }) => ({
+    textTransform: "none",
+    fontWeight: theme.typography.fontWeightRegular,
+    fontSize: theme.typography.pxToRem(15),
+    // marginRight: theme.spacing(1),
+    borderRadius: "16px 0px 0px 0px",
+    borderColor: "none",
+    borderStyle: "solid",
+    // borderWidth: "1px",
+    color: "#B1B1B1",
+    background: "#2C2C2C",
+    "&.Mui-selected": {
+      color: "#fff",
+      zIndex: "1",
+      borderRadius: "16px 0px 0px 0px",
+      background: "#363636",
+      // borderWidth: "0px",
+    },
+    "&.Mui-focusVisible": {
+      // backgroundColor: "#FFFFFF",
+      // borderRadius: "12px",
+    },
+  })
+);
+
+const StyledTab2 = styled((props) => <Tab disableRipple {...props} />)(
   ({ theme }) => ({
     textTransform: "none",
     fontWeight: theme.typography.fontWeightRegular,
@@ -688,7 +711,8 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     "&.Mui-selected": {
       color: "#fff",
       zIndex: "1",
-      borderRadius: "16px 0px 0px 0px",
+      borderRadius: "0px 16px 0px 0px",
+      background: "#363636",
       // borderWidth: "0px",
     },
     "&.Mui-focusVisible": {
