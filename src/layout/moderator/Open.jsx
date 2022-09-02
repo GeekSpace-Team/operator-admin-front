@@ -53,7 +53,6 @@ const Open = (props) => {
     setPassword(props.item.password);
     setPhone_number(props.item.phone_number);
     setStatus(props.item.status);
-    setUserRoleList(props.item.userRooleList);
     setUser_role(props.item.user_role);
     setSell_point_id(props.item.sell_point_id);
     setWork_start_date(props.item.work_start_date);
@@ -280,6 +279,9 @@ const Open = (props) => {
                     onChange={(e) => setUser_role(e.target.value)}
                     label="Sell point"
                   >
+                    <MenuItem value="0">
+                      <em>Hich haysy</em>
+                    </MenuItem>
                     {userRooleList?.map((item, i) => {
                       return <MenuItem value={item.id}>{item.name}</MenuItem>;
                     })}

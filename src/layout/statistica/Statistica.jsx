@@ -194,7 +194,13 @@ const Statistica = () => {
               >
                 Başlangyç sene
               </Typography>
-              <Typography sx={{ padding: "8px", border: "1px solid #B1B1B1" }}>
+              <Typography
+                sx={{
+                  padding: "8px",
+                  border: "1px solid #B1B1B1",
+                  background: "#363636",
+                }}
+              >
                 <input
                   style={{
                     background: "transparent",
@@ -224,7 +230,13 @@ const Statistica = () => {
               >
                 Ahyrky sene
               </Typography>
-              <Typography sx={{ padding: "8px", border: "1px solid #B1B1B1" }}>
+              <Typography
+                sx={{
+                  padding: "8px",
+                  border: "1px solid #B1B1B1",
+                  background: "#363636",
+                }}
+              >
                 <input
                   style={{
                     background: "transparent",
