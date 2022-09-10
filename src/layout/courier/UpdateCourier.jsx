@@ -56,7 +56,6 @@ const UpdateCourier = (props) => {
     setSell_point_id(props.item.sell_point_id);
     setWork_start_date(props.item.work_start_date);
     setDate_of_birthday(props.item.date_of_birthday);
-    setUserRoleList(props.item.userRooleList);
   };
 
   const updateCourier = async (unique_id) => {
