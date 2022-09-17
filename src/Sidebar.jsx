@@ -121,7 +121,7 @@ const Sidebar = (props) => {
             <Accordion
               style={{
                 background: "#363636",
-                fontFamily: "nunito",
+                // fontFamily: "nunito",
                 color: "#fff",
                 overflow: "hidden",
               }}
@@ -150,10 +150,10 @@ const Sidebar = (props) => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Müşderiniň statusy
@@ -162,10 +162,10 @@ const Sidebar = (props) => {
                   <NavLink to={"/findUs"} style={{ textDecoration: "none" }}>
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Bizi nireden tapdy
@@ -177,10 +177,10 @@ const Sidebar = (props) => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Gürleýiş äheňi
@@ -192,10 +192,10 @@ const Sidebar = (props) => {
                   >
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Gürleýiş tony
@@ -204,10 +204,10 @@ const Sidebar = (props) => {
                   <NavLink to={"/speakMode"} style={{ textDecoration: "none" }}>
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Gepleýiş şekili
@@ -216,10 +216,10 @@ const Sidebar = (props) => {
                   <NavLink to={"/speakTone"} style={{ textDecoration: "none" }}>
                     <Typography
                       style={{
-                        fontFamily: "nunito",
-                        fontSize: "18px",
+                        // fontFamily: "nunito",
+                        fontSize: "17px",
                         color: "#fefefe",
-                        fontWeight: "600",
+                        // fontWeight: "600",
                       }}
                     >
                       Nähili äheňde gürleşýär
@@ -234,6 +234,7 @@ const Sidebar = (props) => {
               style={{
                 textDecoration: "none",
                 color: "#FEFEFE",
+                fontFamily: "nunito",
               }}
               key={`${sidebarItem.title}___`}
             >
@@ -244,9 +245,13 @@ const Sidebar = (props) => {
                 disablePadding
               >
                 <ListItemButton
-                  sx={{ textDecoration: "none", background: "transparent" }}
+                  sx={{
+                    textDecoration: "none",
+                    fontFamily: "nunito",
+                    background: "transparent",
+                  }}
                   style={{
-                    borderRadius: "16px",
+                    borderRadius: "17px",
                     background: "transparent",
                   }}
                   color="action"
