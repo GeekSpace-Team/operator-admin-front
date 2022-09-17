@@ -244,7 +244,7 @@ const CancelReason = () => {
                   >
                     Sebäbi
                   </TableCell>
-                  <TableCell
+                  {/* <TableCell
                     style={{
                       color: "#b1b1b1",
                       fontFamily: "nuntio",
@@ -253,7 +253,7 @@ const CancelReason = () => {
                     }}
                   >
                     Söwda nokadyň ady
-                  </TableCell>
+                  </TableCell> */}
                   <TableCell
                     style={{
                       color: "#b1b1b1",
@@ -291,7 +291,7 @@ const CancelReason = () => {
                         >
                           {item.reason}
                         </TableCell>
-                        <TableCell
+                        {/* <TableCell
                           style={{
                             color: "#fefefe",
                             fontFamily: "nuntio",
@@ -300,7 +300,7 @@ const CancelReason = () => {
                           }}
                         >
                           {item.sell_point_name}
-                        </TableCell>
+                        </TableCell> */}
                         <TableCell>
                           <Stack direction={"row"} spacing={2}>
                             <UpdateCancelReason

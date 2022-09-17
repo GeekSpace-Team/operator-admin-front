@@ -21,15 +21,13 @@ import {
 
 const style = {
   position: "absolute",
-  top: "45%",
-  left: "55%",
-  overflow: true,
-  transform: "translate(-50%, -50%)",
-  width: "60%",
-  display: "block",
-  borderRadius: "16px",
+  height: "100%",
+  left: "30%",
+  overflow: "scroll",
+  width: "50%",
   bgcolor: "#363636",
-  boxShadow: 24,
+  border: "transparent",
+  boxShadow: "0px 0px 10px rgba(129, 129, 129, 0.15)",
   color: "#fff",
   p: 4,
 };
