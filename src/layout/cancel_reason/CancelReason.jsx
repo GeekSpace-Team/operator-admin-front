@@ -170,7 +170,7 @@ const CancelReason = () => {
               onChange={(e) => setValue(e.target.value)}
             />
 
-            <FormControl variant="filled" fullWidth>
+            {/* <FormControl variant="filled" fullWidth>
               <InputLabel id="demo-simple-select-filled-label">
                 Söwda nokady
               </InputLabel>
@@ -184,7 +184,7 @@ const CancelReason = () => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>;
                 })}
               </Select>
-            </FormControl>
+            </FormControl> */}
             <Button
               fullWidth
               variant={"contained"}

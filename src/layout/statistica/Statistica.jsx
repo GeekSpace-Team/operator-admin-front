@@ -357,7 +357,7 @@ const Statistica = () => {
                         }}
                         align="left"
                       >
-                        {item.address}
+                        {item.name}
                       </TableCell>
                       <TableCell
                         style={{

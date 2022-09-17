@@ -88,7 +88,7 @@ const UpdateCancelReason = (props) => {
               onChange={(e) => setValue(e.target.value)}
             />
 
-            <FormControl variant="filled">
+            {/* <FormControl variant="filled">
               <InputLabel id="demo-simple-select-filled-label">
                 Söwda nokady
               </InputLabel>
@@ -102,7 +102,7 @@ const UpdateCancelReason = (props) => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>;
                 })}
               </Select>
-            </FormControl>
+            </FormControl> */}
           </Stack>
           <Stack
             direction={"row"}
